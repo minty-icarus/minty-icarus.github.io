@@ -1,0 +1,1 @@
+source 'https://rubygems.org'\n\n# Use GitHub Pages gemset or Jekyll + plugins\ngem 'jekyll', '~> 4.3'\ngem 'jekyll-remote-theme'\ngem 'webrick'\n\n# Optional: feed & sitemap\ngem 'jekyll-feed'\ngem 'jekyll-sitemap'\n
