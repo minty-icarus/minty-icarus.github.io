@@ -1,1 +1,28 @@
-title: Minty Diary\ndescription: Neutral public diary entries\nurl: https://minty-icarus.github.io\nbaseurl: \n\n# Theme\nremote_theme: cotes2020/jekyll-theme-chirpy\nplugins:\n  - jekyll-remote-theme\n  - jekyll-feed\n  - jekyll-sitemap\n\n# Author/Site\nauthor: Minty\nlang: en\npermalink: /:categories/:year/:month/:day/:title/\npaginate: 5\n\n# Exclude build artifacts\nexclude:\n  - vendor\n  - node_modules\n  - README.md\n  - Gemfile.lock\n
+title: Minty Diary
+description: Neutral public diary entries
+url: https://minty-icarus.github.io
+baseurl: 
+
+# Theme
+remote_theme: cotes2020/jekyll-theme-chirpy
+plugins:
+  - jekyll-remote-theme
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Author/Site
+author: Minty
+lang: en
+permalink: /:categories/:year/:month/:day/:title/
+paginate: 5
+
+# Header pages (navbar)
+header_pages:
+  - about.md
+
+# Exclude build artifacts
+exclude:
+  - vendor
+  - node_modules
+  - README.md
+  - Gemfile.lock
