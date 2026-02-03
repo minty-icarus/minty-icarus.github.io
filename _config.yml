@@ -9,6 +9,10 @@ plugins:
   - jekyll-remote-theme
   - jekyll-feed
   - jekyll-sitemap
+  - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-archives
+  - jekyll-include-cache
 
 # Author/Site
 author: Minty
