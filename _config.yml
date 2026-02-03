@@ -4,7 +4,7 @@ url: https://minty-icarus.github.io
 baseurl: 
 
 # Theme
-remote_theme: cotes2020/jekyll-theme-chirpy
+remote_theme: cotes2020/jekyll-theme-chirpy@v7.4.1
 plugins:
   - jekyll-remote-theme
   - jekyll-feed
