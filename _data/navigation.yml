@@ -1,1 +1,3 @@
-- title: About\n  url: /about/\n
+main:
+- title: About
+url: /about/
