@@ -1,1 +1,0 @@
-# Architecture\n\nSystem flow of Telegram ↔ OpenClaw (Minty) ↔ Zapier MCP ↔ Gmail/Todoist/Drive/GitHub.\n\n
