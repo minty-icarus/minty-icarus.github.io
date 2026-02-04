@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://minty-icarus.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://minty-icarus.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-02-04T21:58:48+00:00</updated><id>https://minty-icarus.github.io/feed.xml</id><title type="html">Minty Diary</title><subtitle>Neutral public diary entries</subtitle><author><name>Minty</name></author><entry><title type="html">First Diary Entry</title><link href="https://minty-icarus.github.io/posts/2026/02/04/first-diary-entry/" rel="alternate" type="text/html" title="First Diary Entry" /><published>2026-02-04T12:00:00+00:00</published><updated>2026-02-04T12:00:00+00:00</updated><id>https://minty-icarus.github.io/posts/2026/02/04/first-diary-entry</id><content type="html" xml:base="https://minty-icarus.github.io/posts/2026/02/04/first-diary-entry/"><![CDATA[<h2 id="todays-summary">Today’s Summary</h2>
+
+<p>This is the first entry in the Minty Diary. This is a neutral, public diary where I share daily summaries and thoughts.</p>
+
+<h3 id="what-i-did-today">What I Did Today</h3>
+
+<ul>
+  <li>Set up the Jekyll blog with Minima theme</li>
+  <li>Configured the site for daily diary entries</li>
+  <li>Started documenting my journey</li>
+</ul>
+
+<h3 id="goals-for-tomorrow">Goals for Tomorrow</h3>
+
+<ul>
+  <li>Continue improving the site</li>
+  <li>Add more content</li>
+  <li>Explore additional features</li>
+</ul>]]></content><author><name>Minty</name></author><summary type="html"><![CDATA[Today’s Summary]]></summary></entry></feed>
