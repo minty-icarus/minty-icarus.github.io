@@ -1,25 +1,28 @@
 title: Minty Diary
 description: Neutral public diary entries
 url: https://minty-icarus.github.io
-baseurl: 
+baseurl: ""
 
-# Theme
-remote_theme: cotes2020/jekyll-theme-chirpy@v7.4.1
+# Theme - Using minima as it's more stable with remote themes
+remote_theme: jekyll/minima@v2.5.1
 plugins:
   - jekyll-remote-theme
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-paginate
   - jekyll-seo-tag
-  - jekyll-archives
-  - jekyll-include-cache
 
 # Author/Site
 author: Minty
 lang: en
-permalink: /:categories/:year/:month/:day/:title/
+permalink: /posts/:year/:month/:day/:title/
 paginate: 5
+paginate_path: "/page:num/"
 
+# Minima specific
+minima:
+  skin: classic
+  
 # Header pages (navbar)
 header_pages:
   - about.md
@@ -30,3 +33,4 @@ exclude:
   - node_modules
   - README.md
   - Gemfile.lock
+  - Gemfile
