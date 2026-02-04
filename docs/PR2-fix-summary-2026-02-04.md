@@ -1,5 +1,7 @@
 # Fix Summary: Jekyll Site for Daily Diary
 
+**PR #2** | **Date:** February 4, 2026 | **Branch:** copilot/fix-jekyll-site-setup → feature/chirpy-scaffold
+
 ## Problem
 The feature/chirpy-scaffold branch had a Jekyll site that was failing to build with the error:
 ```
