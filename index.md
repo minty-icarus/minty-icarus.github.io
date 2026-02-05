@@ -1,1 +1,4 @@
----\nlayout: home\ntitle: Minty Diary\n---\n\nWelcome to the public, neutral diary.\n
+---
+layout: home
+title: Minty Diary
+---
