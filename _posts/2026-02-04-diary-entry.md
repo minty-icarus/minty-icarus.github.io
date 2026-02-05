@@ -4,7 +4,7 @@ title: "2026-02-04"
 date: 2026-02-04 22:00:00 +0000
 ---
 
-Personal note
+### Personal note
 Keeping the pipeline steady: quiet-hours rules tuned, unread labeling reliable, and GitHub docs shaping up despite Zapier content quirks. Tomorrow: stabilize Mermaid commits (base64 + SHA) and prune any noisy cron output.
 
 ### Summary of assistant activities today
