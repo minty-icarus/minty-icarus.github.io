@@ -1,132 +1,118 @@
-# Copilot Instructions — minty-icarus.github.io
+# Copilot Instructions - minty-icarus.github.io
 
 ## Repository Summary
 
-This is a **Jekyll-based GitHub Pages** personal diary site deployed at <https://minty-icarus.github.io>. It uses the **Minima v2.5.1** remote theme, Jekyll **4.3.x**, and Ruby **3.2**. The site publishes daily diary entries as Jekyll posts. There are no application tests, no linter configuration, and no JavaScript build steps.
+Jekyll-based GitHub Pages personal diary site at https://minty-icarus.github.io.
+Uses remote_theme jekyll/minima@v2.5.1, Jekyll 4.3.x, Ruby 3.2.
+Publishes daily diary entries as Jekyll posts.
+No test suite, no linters, no JavaScript build steps.
 
-## Build & Validation
+## Build and Validation
 
-### Prerequisites
+Always run these two commands in order:
 
-- Ruby 3.2 (matches CI)
-- Bundler (installed via `gem install bundler`)
+    bundle install
+    bundle exec jekyll build --trace
 
-### Install Dependencies
+If you get Gem::FilePermissionError for /var/lib/gems/, set a local path first:
 
-Always run this before building:
+    bundle config set --local path 'vendor/bundle'
+    bundle install
 
-```bash
-bundle install
-```
+The vendor/ directory is already in .gitignore.
 
-> **Local development note:** If you encounter `Gem::FilePermissionError` for `/var/lib/gems/`, configure a local install path first:
-> ```bash
-> bundle config set --local path 'vendor/bundle'
-> bundle install
-> ```
-> The `vendor/` directory is already in `.gitignore`.
+Expected build output: "done in N seconds."
+Expected warnings (safe to ignore):
+- Sass @import deprecation warnings from the Minima theme.
+- Pagination warning "couldn't find an index.html page" (index.md is used).
+These warnings do not cause build failures.
 
-### Build the Site
+Build output goes to _site/ (gitignored).
 
-```bash
-bundle exec jekyll build --trace
-```
+For local preview: bundle exec jekyll serve --trace (serves at http://127.0.0.1:4000).
 
-- **Expected output:** `done in ≈0.5–1 seconds.`
-- **Expected warnings (safe to ignore):** Sass `@import` deprecation warnings from the Minima theme and a pagination warning (`couldn't find an index.html page`). These do not cause build failures.
-- Build output goes to `_site/` (gitignored).
+## CI - PR Preview
 
-### Local Preview
+The workflow .github/workflows/pr-preview.yml runs on every PR targeting main:
 
-```bash
-bundle exec jekyll serve --trace
-```
+1. Checkout (actions/checkout@v4)
+2. Setup Ruby 3.2 with bundler-cache (ruby/setup-ruby@v1)
+3. bundle install
+4. bundle exec jekyll build --trace
+5. Upload _site as artifact
 
-Opens a local server at `http://127.0.0.1:4000`.
+Always verify changes pass "bundle exec jekyll build --trace" locally before
+pushing. The CI runs this exact command. A build failure blocks the PR.
 
-### CI Workflow — PR Preview (`.github/workflows/pr-preview.yml`)
-
-Runs on every pull request targeting `main`. Steps:
-
-1. Checkout (`actions/checkout@v4`)
-2. Setup Ruby 3.2 with bundler-cache (`ruby/setup-ruby@v1`)
-3. `bundle install`
-4. `bundle exec jekyll build --trace`
-5. Upload `_site` as artifact
-
-**Always verify your changes pass `bundle exec jekyll build --trace` locally before pushing.** The CI runs this exact command. A build failure will block the PR.
-
-### No Tests or Linters
-
-There is no test suite, no linting, and no formatting tools configured. The only validation is a successful Jekyll build.
+There are no other tests or linters. A successful Jekyll build is the only gate.
 
 ## Project Layout
 
-```
-.
-├── .github/
-│   ├── CODEOWNERS              # @minty-icarus required reviewer
-│   ├── copilot-instructions.md # (this file)
-│   └── workflows/
-│       └── pr-preview.yml      # CI: build on PRs to main
-├── _config.yml                 # Jekyll site configuration (theme, plugins, permalink)
-├── _data/
-│   └── navigation.yml          # Navigation links
-├── _posts/                     # Diary entries (one per day)
-│   ├── 2026-02-04-diary-entry.md
-│   └── 2026-02-05-diary-entry.md
-├── docs/                       # Documentation / reference
-│   ├── architecture-diagram.md
-│   ├── PR2-fix-summary-2026-02-04.md
-│   └── WORKFLOW_FIX.md
-├── about.md                    # About page (layout: page)
-├── index.md                    # Homepage (layout: home)
-├── Gemfile                     # Ruby dependencies
-├── Gemfile.lock                # Locked dependency versions
-├── .gitignore                  # Excludes _site/, vendor/, .bundle/, etc.
-└── README.md                   # Brief repo description
-```
+    .github/CODEOWNERS              - @minty-icarus is required reviewer
+    .github/copilot-instructions.md - this file
+    .github/workflows/pr-preview.yml - CI build on PRs to main
+    _config.yml        - Jekyll config (theme, plugins, permalink, pagination)
+    _data/navigation.yml - navigation links
+    _posts/            - diary entries, one file per day
+    docs/              - documentation and reference
+    about.md           - About page (layout: page)
+    index.md           - Homepage (layout: home, lists posts)
+    Gemfile            - Ruby dependencies
+    Gemfile.lock       - locked dependency versions
+    .gitignore         - excludes _site/, vendor/, .bundle/
 
-### Key Configuration (`_config.yml`)
+Key _config.yml settings:
+- remote_theme: jekyll/minima@v2.5.1
+- plugins: jekyll-remote-theme, jekyll-feed, jekyll-sitemap, jekyll-paginate, jekyll-seo-tag
+- permalink: /posts/:year/:month/:day/:title/
+- paginate: 5
+- exclude: vendor, node_modules, README.md, Gemfile.lock, Gemfile
 
-- **Theme:** `remote_theme: jekyll/minima@v2.5.1`
-- **Plugins:** jekyll-remote-theme, jekyll-feed, jekyll-sitemap, jekyll-paginate, jekyll-seo-tag
-- **Permalink:** `/posts/:year/:month/:day/:title/`
-- **Pagination:** 5 posts per page
-- **Excluded from build:** `vendor`, `node_modules`, `README.md`, `Gemfile.lock`, `Gemfile`
+## Adding a Diary Post
 
-### Adding a New Diary Post
+Create _posts/YYYY-MM-DD-diary-entry.md with front matter:
 
-Create a file in `_posts/` named `YYYY-MM-DD-diary-entry.md` with this front matter:
+    ---
+    layout: post
+    title: "YYYY-MM-DD"
+    date: YYYY-MM-DD 22:00:00 +0000
+    ---
 
-```markdown
----
-layout: post
-title: "YYYY-MM-DD"
-date: YYYY-MM-DD 22:00:00 +0000
----
+    Post content here (Markdown).
 
-Post content here (Markdown).
-```
-
-### Editing Pages
-
-- `index.md` — Homepage, uses `layout: home` (lists posts).
-- `about.md` — About page at `/about/`, uses `layout: page`.
-- Navigation links are listed in `_config.yml` under `header_pages`.
-
-### CODEOWNERS
-
-All changes require review from `@minty-icarus` (`.github/CODEOWNERS`).
+Editing pages:
+- index.md uses layout: home (lists posts).
+- about.md uses layout: page at /about/.
+- header_pages in _config.yml controls the navbar.
 
 ## Common Pitfalls
 
-1. **Do not modify `Gemfile.lock` manually.** Run `bundle install` or `bundle update <gem>` and commit the regenerated lockfile.
-2. **Sass deprecation warnings are expected.** They originate from the Minima theme and do not affect the build.
-3. **The pagination warning** about missing `index.html` is benign — `index.md` is used as the homepage.
-4. **Always keep `Gemfile.lock` in sync with `Gemfile`.** A mismatch causes CI failures in frozen/bundler-cache mode (see `docs/WORKFLOW_FIX.md`).
-5. **`_site/`, `vendor/`, `.bundle/`** are gitignored — never commit build output or installed gems.
+1. Newline artifacts: When content arrives from external tools (Zapier, Google
+   Docs), literal \n or carriage-return sequences may appear in the Markdown.
+   Always replace them with real newlines before committing.
+
+2. CODEOWNERS and required reviewers: .github/CODEOWNERS requires @minty-icarus
+   as reviewer on every PR. Do not remove or rename this file. PRs cannot merge
+   without this approval.
+
+3. Label and issue tool quirks: GitHub label APIs expect the label name string,
+   not the label ID. When creating or applying labels via tools, always pass the
+   display name. Double-check that labels exist before applying them.
+
+4. Gemfile.lock sync: Never edit Gemfile.lock by hand. Run "bundle install" or
+   "bundle update <gem>" and commit the regenerated lockfile. A mismatch causes
+   CI failures in frozen/bundler-cache mode (see docs/WORKFLOW_FIX.md).
+
+5. Sass and pagination warnings are expected: They come from the Minima theme
+   and do not cause build failures. Do not try to fix them.
+
+6. Build artifacts: _site/, vendor/, .bundle/ are gitignored. Never commit them.
+
+7. Avoid decorative separators: Do not add horizontal rules, decorative ASCII
+   art, or unnecessary formatting to posts or pages. Keep content plain and
+   readable.
 
 ## Trust These Instructions
 
-Follow the steps above as written. Only search the repo for additional context if these instructions are incomplete or produce errors.
+Follow the steps above as written. Only search the repo for additional context
+if these instructions are incomplete or produce errors.
