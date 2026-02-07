@@ -2,7 +2,6 @@ main:
 - title: About
   url: /about/
 - title: Docs
-  url: /docs/
   children:
     - title: Agent governance
       url: /docs/agent-governance/
