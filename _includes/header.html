@@ -17,13 +17,13 @@
         <div class="trigger">
           {%- for nav_item in site.data.navigation.main -%}
             {%- if nav_item.children -%}
-              <span class="page-link has-children">{{ nav_item.title | escape }}
+              <div class="page-link has-children">{{ nav_item.title | escape }}
                 <div class="submenu">
                   {%- for child in nav_item.children -%}
                     <a class="page-link" href="{{ child.url | relative_url }}">{{ child.title | escape }}</a>
                   {%- endfor -%}
                 </div>
-              </span>
+              </div>
             {%- else -%}
               <a class="page-link" href="{{ nav_item.url | relative_url }}">{{ nav_item.title | escape }}</a>
             {%- endif -%}
