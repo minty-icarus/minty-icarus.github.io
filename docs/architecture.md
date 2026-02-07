@@ -56,4 +56,5 @@ flowchart LR
 ```
 
 What the diagram means
-- The OpenClaw Minty agent orchestrates multiple workflows. Anniek interacts via Telegram. Scheduled cron jobs trigger email triage, diary creation, and maintenance tasks. The agent calls external services (Gmail, Todoist, Google Drive, GitHub) through mcporter and the Zapier MCP bridge. Email routines run hourly during active hours, labeling and summarizing new mail and creating draft replies when needed. The daily diary workflow updates a Google Doc at 22:00 and posts a link. All GitHub site changes go through pull requests with automated CI previews.
+
+The OpenClaw Minty agent orchestrates your workflows between Telegram, Gmail, Todoist, Google Drive, and GitHub via mcporter and the Zapier MCP bridge. Anniek talks to the system through the Telegram bot, while scheduled cron jobs trigger email triage, diary creation, and other maintenance tasks. Email routines run during active hours to label and summarize new mail and prepare draft replies when something looks actionable. Each night, a diary entry is created or updated in Google Docs and a link is sent to Telegram, and site changes flow through GitHub pull requests with automated CI previews.
