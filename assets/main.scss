@@ -65,7 +65,8 @@
     }
   }
 
-  .site-nav .has-children:hover .submenu {
+  .site-nav .has-children:hover .submenu,
+  .site-nav .has-children:focus-within .submenu {
     display: block;
   }
 }
