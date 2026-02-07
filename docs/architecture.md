@@ -54,3 +54,6 @@ flowchart LR
   OC -->|PR commits via API| GITHUB
   GITHUB -->|PR Preview (Actions)| TG
 ```
+
+What the diagram means
+- The OpenClaw Minty agent orchestrates multiple workflows. Anniek interacts via Telegram. Scheduled cron jobs trigger email triage, diary creation, and maintenance tasks. The agent calls external services (Gmail, Todoist, Google Drive, GitHub) through mcporter and the Zapier MCP bridge. Email routines run hourly during active hours, labeling and summarizing new mail and creating draft replies when needed. The daily diary workflow updates a Google Doc at 22:00 and posts a link. All GitHub site changes go through pull requests with automated CI previews.
