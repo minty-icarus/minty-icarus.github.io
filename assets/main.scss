@@ -33,6 +33,60 @@
   .site-nav {
     margin-left: auto;
   }
+
+  // Dropdown menu styles
+  .site-nav .has-children {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  .site-nav .submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fdfdfd;
+    border: 1px solid #e8e8e8;
+    border-radius: 5px;
+    padding: 5px 0;
+    min-width: 180px;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+    .page-link {
+      display: block;
+      padding: 8px 15px;
+      white-space: nowrap;
+
+      &:hover {
+        background-color: #f0f0f0;
+      }
+    }
+  }
+
+  .site-nav .has-children:hover .submenu,
+  .site-nav .has-children:focus-within .submenu {
+    display: block;
+  }
+}
+
+// Mobile menu adjustments
+@media screen and (max-width: 600px) {
+  .site-nav .trigger {
+    .submenu {
+      position: static;
+      display: block;
+      border: none;
+      box-shadow: none;
+      padding-left: 15px;
+      margin-top: 5px;
+    }
+  }
+
+  .site-nav .has-children {
+    display: block;
+  }
 }
 
 // Responsive adjustments for mobile

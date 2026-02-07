@@ -54,3 +54,7 @@ flowchart LR
   OC -->|PR commits via API| GITHUB
   GITHUB -->|PR Preview (Actions)| TG
 ```
+
+What the diagram means
+
+The OpenClaw Minty agent orchestrates your workflows between Telegram, Gmail, Todoist, Google Drive, and GitHub via mcporter and the Zapier MCP bridge. Anniek talks to the system through the Telegram bot, while scheduled cron jobs trigger email triage, diary creation, and other maintenance tasks. Email routines run during active hours to label and summarize new mail and prepare draft replies when something looks actionable. Each night, a diary entry is created or updated in Google Docs and a link is sent to Telegram, and site changes flow through GitHub pull requests with automated CI previews.
