@@ -72,13 +72,15 @@
 
 // Mobile menu adjustments
 @media screen and (max-width: 600px) {
-  .site-nav .submenu {
-    position: static;
-    display: block !important;
-    border: none;
-    box-shadow: none;
-    padding-left: 15px;
-    margin-top: 5px;
+  .site-nav .trigger {
+    .submenu {
+      position: static;
+      display: block;
+      border: none;
+      box-shadow: none;
+      padding-left: 15px;
+      margin-top: 5px;
+    }
   }
 
   .site-nav .has-children {
