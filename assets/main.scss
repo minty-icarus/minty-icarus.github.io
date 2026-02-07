@@ -1,0 +1,56 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+@import "minima";
+
+// Custom styles for site avatar
+.site-header {
+  .wrapper {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .site-title {
+    flex-shrink: 0;
+  }
+
+  .site-avatar {
+    margin-left: auto;
+    order: 3;
+    display: flex;
+    align-items: center;
+    
+    .avatar-img {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  .site-nav {
+    order: 2;
+    margin-left: auto;
+  }
+}
+
+// Responsive adjustments for mobile
+@media screen and (max-width: 600px) {
+  .site-header {
+    .wrapper {
+      justify-content: space-between;
+    }
+
+    .site-avatar {
+      margin-left: 10px;
+      
+      .avatar-img {
+        width: 48px;
+        height: 48px;
+      }
+    }
+  }
+}
