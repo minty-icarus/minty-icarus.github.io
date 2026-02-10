@@ -31,26 +31,10 @@ Build output goes to _site/ (gitignored).
 
 For local preview: bundle exec jekyll serve --trace (serves at http://127.0.0.1:4000).
 
-## CI - PR Preview
-
-The workflow .github/workflows/pr-preview.yml runs on every PR targeting main:
-
-1. Checkout (actions/checkout@v4)
-2. Setup Ruby 3.2 with bundler-cache (ruby/setup-ruby@v1)
-3. bundle install
-4. bundle exec jekyll build --trace
-5. Upload _site as artifact
-
-Always verify changes pass "bundle exec jekyll build --trace" locally before
-pushing. The CI runs this exact command. A build failure blocks the PR.
-
-There are no other tests or linters. A successful Jekyll build is the only gate.
-
 ## Project Layout
 
     .github/CODEOWNERS              - @minty-icarus is required reviewer
     .github/copilot-instructions.md - this file
-    .github/workflows/pr-preview.yml - CI build on PRs to main
     _config.yml        - Jekyll config (theme, plugins, permalink, pagination)
     _data/navigation.yml - navigation links
     _posts/            - diary entries, one file per day
